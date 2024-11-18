@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <title>Corsa di Cavalli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .race-track {
+            width: 80%;
+            max-width: 600px;
+            height: 60px;
+            margin: 10px 0;
+            position: relative;
+            border: 2px dashed #888;
+            background-color: #9a3737;
+        }
+        .horse-container {
+            position: absolute;
+            top: 5px;
+            height: 50px;
+        }
+        .horse {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+        #run-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Corsa di Cavalli</h1>
+
+    <div class="race-track">
+        <div class="horse-container" id="container1">
+            <img src="https://dejpknyizje2n.cloudfront.net/media/carstickers/versions/horse-icon-silhouette-sticker-ufb1a-x450.png" class="horse" id="horse1" alt="Cavallo 1">
+        </div>
+    </div>
+    <div class="race-track">
+        <div class="horse-container" id="container2">
+            <img src="https://dejpknyizje2n.cloudfront.net/media/carstickers/versions/horse-icon-silhouette-sticker-ufb1a-x450.png" class="horse" id="horse2" alt="Cavallo 2">
+        </div>
+    </div>
+    <div class="race-track">
+        <div class="horse-container" id="container3">
+            <img src="https://dejpknyizje2n.cloudfront.net/media/carstickers/versions/horse-icon-silhouette-sticker-ufb1a-x450.png" class="horse" id="horse3" alt="Cavallo 3">
+        </div>
+    </div>
+
+    <button id="run-button" onclick="startRace()">Corri!</button>
+    <div id="result"></div>
+
+    <script>
+        function startRace() {
+            const horsePositions = [0, 0, 0];
+            const horseImages = [
+                document.getElementById('horse1'),
+                document.getElementById('horse2'),
+                document.getElementById('horse3')
+            ];
+            const trackLength = document.querySelector('.race-track').clientWidth - 100; 
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // Reset del risultato
+
+            // Reset posizione cavalli
+            horseImages.forEach(horse => horse.style.left = '0px');
+
+            let raceInterval = setInterval(() => {
+                for (let i = 0; i < horsePositions.length; i++) {
+                    // Incrementa la posizione casualmente tra 5 e 20 pixel
+                    horsePositions[i] += Math.floor(Math.random() * 15) + 5;
+                    if (horsePositions[i] > trackLength) horsePositions[i] = trackLength;
+
+                    // Aggiorna la posizione del cavallo
+                    horseImages[i].style.left = horsePositions[i] + 'px';
+
+                    // Verifica se un cavallo ha raggiunto il traguardo
+                    if (horsePositions[i] >= trackLength) {
+                        clearInterval(raceInterval);
+                        resultDiv.innerHTML = `Il vincitore è il Cavallo ${i + 1}! 🏆`;
+                        break;
+                    }
+                }
+            }, 10); // Aggiornamento ogni 200ms
+        }
+    </script>
+</body>
+</html>

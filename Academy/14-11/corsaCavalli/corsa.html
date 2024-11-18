@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <title>Corsa di Cavalli</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .race-track {
+            width: 80%;
+            max-width: 600px;
+            margin: 10px 0;
+        }
+        .container_cavalli {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .cavalli {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .progress-bar {
+            flex-grow: 1;
+            height: 20px;
+            background-color: #ddd;
+        }
+        .progress-bar-inner {
+            height: 100%;
+            width: 0%;
+            background-color: #4caf50;
+        }
+        #run-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Corsa di Cavalli</h1>
+
+    <div class="race-track">
+        <div class="container_cavalli">
+            <img src="https://dejpknyizje2n.cloudfront.net/media/carstickers/versions/horse-icon-silhouette-sticker-ufb1a-x450.png"  class="cavalli" alt="Cavallo 1">
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="cavallo1"></div>
+            </div>
+        </div>
+        <div class="container_cavalli">
+            <img src="https://dejpknyizje2n.cloudfront.net/media/carstickers/versions/horse-icon-silhouette-sticker-ufb1a-x450.png"  class="cavalli" alt="Cavallo 2">
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="cavallo2"></div>
+            </div>
+        </div>
+        <div class="container_cavalli">
+            <img src="https://dejpknyizje2n.cloudfront.net/media/carstickers/versions/horse-icon-silhouette-sticker-ufb1a-x450.png" class="cavalli" alt="Cavallo 3">
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="cavallo3"></div>
+            </div>
+        </div>
+    </div>
+
+    <button id="run-button" onclick="startRace()">Corri!</button>
+    <div id="risultato"></div>
+
+    <script>
+        function startRace() {
+            const progressiCavalli = [0, 0, 0];
+            const innerBars = [
+                document.getElementById('cavallo1'),
+                document.getElementById('cavallo2'),
+                document.getElementById('cavallo3')
+            ];
+            const resultDiv = document.getElementById('risultato');
+            resultDiv.innerHTML = '';
+
+            let raceInterval = setInterval(() => {
+                for (let i = 0; i < progressiCavalli.length; i++) { 
+                    progressiCavalli[i] += Math.floor(Math.random() * 5);
+                    if (progressiCavalli[i] > 100){ 
+                        progressiCavalli[i] = 100;
+                    }
+
+                   innerBars[i].style.width = progressiCavalli[i] + '%';
+
+                    if (progressiCavalli[i] >= 100) {
+                        clearInterval(raceInterval);
+                        resultDiv.innerHTML = `Il vincitore è il Cavallo ${i + 1}!`;
+                        break;
+                    }
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>
