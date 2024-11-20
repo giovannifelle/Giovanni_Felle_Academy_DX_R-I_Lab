@@ -3,7 +3,7 @@ package Esercizi;
 import java.util.ArrayList;
 
 public class Biblioteca {
-
+    //Primi esercizi sulle classi, le variabili vengono poste publiche per conoscenze basilira
     //Array di libri
     public ArrayList<Libro> libri=new ArrayList<>();
 

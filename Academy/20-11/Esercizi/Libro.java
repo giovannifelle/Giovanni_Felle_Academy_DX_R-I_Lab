@@ -1,7 +1,7 @@
 package Esercizi;
 
 public class Libro {
-
+    //Primi esercizi sulle classi, le variabili vengono poste publiche per conoscenze basilira
     public String nomeLibro;
     public String nomeAutore;
 

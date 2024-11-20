@@ -3,7 +3,7 @@ package Esercizi;
 import java.util.ArrayList;
 
 public class Chef {
-
+//Primi esercizi sulle classi, le variabili vengono poste publiche per conoscenze basilira
     public String nome;
     public String tipoChef;
     public ArrayList<String> ingredienti;
