@@ -1,11 +1,19 @@
 package Esercizi;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class EsercizioQuattro {
-    private static ArrayList<Integer>[] spedizioni = new ArrayList[4];
+    //Array Statico di ArrayList
+    private static ArrayList<Integer>[] spedizioni = new ArrayList[4]; //={new ArrayList<>(),new ArrayList<>(),new ArrayList<>(),new ArrayList<>())
+    private static ArrayList<Integer> memorizzaSpedizioni=new ArrayList<>();
+    //Oggetto Random
+    private static Random random = new Random();
+    private static Integer giornata=0;
+    private static Integer minSped=100;
 
+    //Inizializzo gli Array
     static{
         for(int i=0;i<4;i++){
             spedizioni[i]=new ArrayList<>();
@@ -18,15 +26,18 @@ public class EsercizioQuattro {
     public static void main(String[] args) {
 
         int[] penne = new int[4];
+        //MENU
         while (true) {
             System.out.println("Cosa vuoi fare?");
             System.out.println("1. Aggiungi spedizione\n" +
                     "2. Visualizza spedizioni\n" +
                     "3. Totale penne di un colore\n" +
                     "4. Ricerca per colore\n" +
+                    "5. Simulazione temporale\n" +
                     "Premi qualsiasi tasto per uscire");
             String scelta = keyboardStr.nextLine();
             switch (scelta) {
+                // Caso 1
                 case "1":
                     do {
                         System.out.print("Inserisci numero penne rosse: ");
@@ -44,6 +55,7 @@ public class EsercizioQuattro {
                     stampaSpedizioni();
                     break;
                 case "3":
+                    //Salvo la sceltaColore
                     String sceltaColore=sceltaUtente();
                     System.out.println("Sono state spedite in totale: "+sommaColore(sceltaColore));
                     break;
@@ -51,12 +63,16 @@ public class EsercizioQuattro {
                     sceltaColore=sceltaUtente();
                     ricercaPerColore(sceltaColore);
                     break;
+                case "5":
+                    randomTask();
+                    break;
                 default: return;
             }
         }
     }
 
 
+    //Metodo che visualizza (non stampa, ritorna semplicemente l'array) le spedizioni in base al colore scelto
     public static ArrayList<Integer> visSpedizioni(String colore) {
         colore = colore.toLowerCase();
         switch (colore) {
@@ -73,6 +89,7 @@ public class EsercizioQuattro {
         }
     }
 
+    //Stampa tutte le spedizioni
     public static void stampaSpedizioni() {
         if(spedizioni[0].size()==0){
             System.err.println("Nessuna spedizione registrata!");
@@ -90,6 +107,7 @@ public class EsercizioQuattro {
 
     }
 
+    //Stampa la singola spedizione a linea di comando
     public static void stampaSpedizione(String colore) {
         System.out.printf("%-15s", colore.toUpperCase());
         for (Integer num : visSpedizioni(colore)) {
@@ -98,11 +116,13 @@ public class EsercizioQuattro {
         System.out.println();
     }
 
+    //Somma le penne di un singolo colore
     public static Integer sommaColore(String colore) {
         return sommaArray(visSpedizioni(colore));
 
     }
 
+    //Somma genericamente un array
     public static Integer sommaArray(ArrayList<Integer> array) {
         Integer somma = 0;
         for (Integer num : array) {
@@ -111,6 +131,7 @@ public class EsercizioQuattro {
         return somma;
     }
 
+    //Ricerca per colore
     public static void ricercaPerColore(String colore) {
         ArrayList<Integer> totale = visSpedizioni(colore);
         for (int i = 0; i < totale.size(); i++) {
@@ -120,6 +141,7 @@ public class EsercizioQuattro {
         }
     }
 
+    //Aggiunge una spedizione
     public static void addSpedizione(int[] numeroPenne) {
         if (numeroPenne.length != 4) {
             System.err.println("Formato incompatibile");
@@ -130,6 +152,7 @@ public class EsercizioQuattro {
         }
     }
 
+    //Menù scelta colore reso metodo unico generico in modo da semplificare e risparmiare
     public static String sceltaUtente() {
         System.out.println("Quale colore?");
         System.out.println("1. Rosso\n" +
@@ -149,5 +172,61 @@ public class EsercizioQuattro {
             default:
                 return null;
         }
+    }
+
+    //Task random scollegato dagli altri aggiunto il 20-11
+    public static void randomTask(){
+        int[] penne = new int[4];
+        while(true){
+            penne[0] = random.nextInt(70) + 1;
+            penne[1] = random.nextInt(70) + 1;
+            penne[2] =  random.nextInt(70) + 1;
+            penne[3] = random.nextInt(70) + 1;
+            addSpedizione(penne);
+            giornata++;
+            stampaGiornata();
+            try{
+            Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            verificaSpedizione();
+        }
+    }
+
+    public static void verificaSpedizione(){
+
+        Integer totaleRosse=sommaColore("rosso")-(minSped*memorizzaSpedizioni.size());
+
+        Integer totaleBlu=sommaColore("blu")-(minSped*memorizzaSpedizioni.size());
+
+        Integer totaleVerde=sommaColore("verde")-(minSped*memorizzaSpedizioni.size());
+
+        Integer totaleNere=sommaColore("nero")-(minSped*memorizzaSpedizioni.size());
+
+        if(totaleRosse>=minSped&&totaleBlu>=minSped&&totaleVerde>=minSped&&totaleNere>=minSped){
+            memorizzaSpedizioni.add(1);
+            System.out.println("SPEDIZIONE PARTITA NELLA GIORNATA "+giornata+" !");
+        } else{
+            System.out.println("LA SPEDIZIONE NON PUO' PARTIRE POICHE' MANCANO ANCORA DELLE PENNE");
+        }
+
+    }
+
+    public static void stampaGiornata() {
+        if(spedizioni[0].size()==0){
+            System.err.println("Nessuna spedizione registrata!");
+            return;
+        }
+        System.out.printf("%-15s", "GIORNATA");
+        for (int i = 0; i < giornata; i++) {
+            System.out.printf("%5d", i);
+        }
+        System.out.println();
+        stampaSpedizione("Rosso");
+        stampaSpedizione("Blu");
+        stampaSpedizione("Verde");
+        stampaSpedizione("Nero");
+
     }
 }
