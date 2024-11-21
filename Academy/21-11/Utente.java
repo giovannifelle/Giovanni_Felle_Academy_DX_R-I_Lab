@@ -11,7 +11,7 @@ public class Utente {
         Id = id;
         this.nome = nome;
         this.password = password;
-        filmNoleggiati=new ArrayList<>();
+        filmNoleggiati = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -42,12 +42,23 @@ public class Utente {
         return filmNoleggiati;
     }
 
+    public void getListaNoleggi(){
+        System.out.println("Lista di film noleggiati:");
+        for(Film f : filmNoleggiati){
+            System.out.println(f);
+        }
+
+    }
+
     public void setFilmNoleggiati(ArrayList<Film> filmNoleggiati) {
         this.filmNoleggiati = filmNoleggiati;
     }
 
-    public void addFilm(Film film){
+    public void addFilm(Film film) {
         filmNoleggiati.add(film);
+    }
+    public void removeFilm(Film film) {
+        filmNoleggiati.remove(film);
     }
 
     @Override
@@ -60,6 +71,6 @@ public class Utente {
 
     @Override
     public String toString() {
-        return "Utente n."+ Id +"con nome "+ nome+" ha noleggiato "+filmNoleggiati.size()+" film";
+        return "Utente n." + Id + "con nome " + nome + " ha noleggiato " + filmNoleggiati.size() + " film\n";
     }
 }

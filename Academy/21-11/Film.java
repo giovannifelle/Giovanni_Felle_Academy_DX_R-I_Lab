@@ -38,6 +38,6 @@ public class Film {
     public String toString() {
         return "Film" +
                 " " + nome +
-                " uscito nel " + anno+";\n";
+                " uscito nel " + anno + ";\n";
     }
 }

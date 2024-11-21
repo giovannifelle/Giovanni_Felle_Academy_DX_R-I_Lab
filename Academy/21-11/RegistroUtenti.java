@@ -8,7 +8,7 @@ public class RegistroUtenti {
 
     public RegistroUtenti() {
         this.registroUtenti = new ArrayList<>();
-        this.numeroUtenti=1;
+        this.numeroUtenti = 1;
     }
 
     public ArrayList<Utente> getRegistroUtenti() {
@@ -16,13 +16,24 @@ public class RegistroUtenti {
     }
 
 
-    public void aggiungiUtente(Utente u){
+    public void aggiungiUtente(Utente u) {
         registroUtenti.add(u);
     }
 
-    public void registrazione(String nome, String password){
-        if(!cercaPerNome(nome)){
-            Utente u=new Utente(numeroUtenti, nome, password);
+    public Utente getUtenteInSessione() {
+        return utenteInSessione;
+    }
+
+    public boolean isUtenteInSessione() {
+        if (getUtenteInSessione() == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public void registrazione(String nome, String password) {
+        if (!cercaPerNome(nome)) {
+            Utente u = new Utente(numeroUtenti, nome, password);
             aggiungiUtente(u);
             numeroUtenti++;
             System.out.println("Registrazione avvenuta con successo!");
@@ -31,37 +42,44 @@ public class RegistroUtenti {
         System.err.println("Nome già in uso");
 
     }
-    public void login(String nome, String password){
-        Utente u=cerca(nome, password);
-        if(u==null){
+
+    public void login(String nome, String password) {
+        Utente u = cerca(nome, password);
+        if (u == null) {
             System.err.println("Nessun Utente trovato");
             return;
-        }else{
+        } else {
             System.out.println("Login avvenuto con successo;");
-            utenteInSessione=u;
+            utenteInSessione = u;
         }
     }
-    public boolean cercaPerNome(String nome){
-        for(Utente u: registroUtenti){
-            if(u.getNome().equals(nome)){
+
+    public void esci() {
+        utenteInSessione = null;
+    }
+
+    public boolean cercaPerNome(String nome) {
+        for (Utente u : registroUtenti) {
+            if (u.getNome().equals(nome)) {
                 return true;
             }
         }
         return false;
     }
-    public Utente cerca(String nome, String password){
-        for(Utente u: registroUtenti){
-            if(u.getNome().equals(nome)&&u.getPassword().equals(password)){
+
+    public Utente cerca(String nome, String password) {
+        for (Utente u : registroUtenti) {
+            if (u.getNome().equals(nome) && u.getPassword().equals(password)) {
                 return u;
             }
         }
         return null;
     }
 
-    public String toString(){
-        String listaUtenti="Lista Utenti\n";
-        for(Utente u: registroUtenti){
-            listaUtenti=listaUtenti+u.toString();
+    public String toString() {
+        String listaUtenti = "Lista Utenti\n";
+        for (Utente u : registroUtenti) {
+            listaUtenti = listaUtenti + u.toString();
         }
         return listaUtenti;
     }
