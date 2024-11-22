@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Ristorante {
 
-    private ArrayList<String> piatti;
-    private ArrayList<String> valutazioni;
+    private static ArrayList<String> piatti;
+    private static ArrayList<String> valutazioni;
 
     public Ristorante() {
         this.piatti = new ArrayList<>();
@@ -33,5 +33,16 @@ public class Ristorante {
     }
     public void aggiungiValutazione(String valutazione){
         valutazioni.add(valutazione);
+    }
+
+    public void stampaPiatti(){
+        for(String p:piatti){
+            System.out.println(p);
+        }
+    }
+    public void stampaValutazioni(){
+        for(String v:valutazioni){
+            System.out.println(v);
+        }
     }
 }

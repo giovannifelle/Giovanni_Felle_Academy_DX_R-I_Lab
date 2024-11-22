@@ -43,8 +43,10 @@ public abstract class Utente extends Ristorante{
 
     @Override
     public void aggiungiPiatto(String piatto){
+        super.aggiungiPiatto(piatto);
     }
     @Override
     public void aggiungiValutazione(String valutazione){
+        super.aggiungiValutazione(valutazione);
     }
 }

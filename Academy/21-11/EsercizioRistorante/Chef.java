@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Chef extends Utente{
 
 
-    private ArrayList<String> piatti;
     private static String passwordChef="pChef";
     public Chef(String email, String nome) {
         super(email, nome);
@@ -17,6 +16,6 @@ public class Chef extends Utente{
     }
     @Override
     public void aggiungiPiatto(String piatto){
-        piatti.add(piatto);
+        super.aggiungiPiatto(piatto);
     }
 }

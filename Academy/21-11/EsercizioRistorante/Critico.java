@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Critico extends Utente{
 
 
-    private ArrayList<String> valutazioni;
     private static String passwordCritico="pCritico";
     public Critico(String email, String nome){
         super(email, nome);
@@ -18,6 +17,6 @@ public class Critico extends Utente{
 
     @Override
     public void aggiungiValutazione(String valutazione) {
-        valutazioni.add(valutazione);
+        super.aggiungiValutazione(valutazione);
     }
 }
