@@ -5,6 +5,7 @@ import it.eng.corso.bookservice.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,16 +18,18 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping("/api/v1/books")
-    public List<Book> findAll(){
+    public List<Book> findAll() {
         return bookService.findAll();
     }
 
 
     @GetMapping("/api/v1/books/{author}")
-    public List<Book> findByAuthor(@PathVariable String author){
-        if(bookService.findByAuthor(author).isEmpty()){
-            System.out.println("Nessun libro da trovare");
-        }
-        return bookService.findByAuthor(author);
+    public String findByAuthor(@PathVariable String author) {
+        return bookService.findNomeByAuthor(author);
     }
+
+    // @GetMapping("/api/v1/books/")
+    // public String findByAuthor(@RequestParam String author){
+    //     return bookService.findNomeByAuthor(author);
+    // }
 }

@@ -27,5 +27,14 @@ public class BookServiceImpl implements BookService{
     public List<Book> findByAuthor(String nome){
         return  bookRepository.findByAuthor(nome);
     }
+
+    public String findNomeByAuthor(String nome){
+        String str="";
+        List<Book> listaLibri=findByAuthor(nome);
+        for(Book book : listaLibri){
+            str+=book.getTitle();
+        }
+        return str;
+    }
 }
 
