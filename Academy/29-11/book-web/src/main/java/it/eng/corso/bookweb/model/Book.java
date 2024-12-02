@@ -1,4 +1,4 @@
-package it.eng.corso.bookservice.model;
+package it.eng.corso.bookweb.model;
 
 
 import jakarta.persistence.Entity;
