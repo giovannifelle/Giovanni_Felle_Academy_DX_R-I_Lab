@@ -1,0 +1,14 @@
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/MyApp.GeneratedMSBuildEditorConfig.editorconfig
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/MyApp.AssemblyInfoInputs.cache
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/MyApp.AssemblyInfo.cs
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/MyApp.csproj.CoreCompileInputs.cache
+/opt/projects/csharp/02-12/MyApp/bin/Debug/net8.0/MyApp
+/opt/projects/csharp/02-12/MyApp/bin/Debug/net8.0/MyApp.deps.json
+/opt/projects/csharp/02-12/MyApp/bin/Debug/net8.0/MyApp.runtimeconfig.json
+/opt/projects/csharp/02-12/MyApp/bin/Debug/net8.0/MyApp.dll
+/opt/projects/csharp/02-12/MyApp/bin/Debug/net8.0/MyApp.pdb
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/MyApp.dll
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/refint/MyApp.dll
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/MyApp.pdb
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/MyApp.genruntimeconfig.cache
+/opt/projects/csharp/02-12/MyApp/obj/Debug/net8.0/ref/MyApp.dll
