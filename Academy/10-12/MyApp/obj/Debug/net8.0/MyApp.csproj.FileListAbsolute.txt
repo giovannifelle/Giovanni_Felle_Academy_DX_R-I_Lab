@@ -1,0 +1,15 @@
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/MyApp.GeneratedMSBuildEditorConfig.editorconfig
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/MyApp.AssemblyInfoInputs.cache
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/MyApp.AssemblyInfo.cs
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/MyApp.csproj.CoreCompileInputs.cache
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/MyApp.sourcelink.json
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/bin/Debug/net8.0/MyApp
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/bin/Debug/net8.0/MyApp.deps.json
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/bin/Debug/net8.0/MyApp.runtimeconfig.json
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/bin/Debug/net8.0/MyApp.dll
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/bin/Debug/net8.0/MyApp.pdb
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/MyApp.dll
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/refint/MyApp.dll
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/MyApp.pdb
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/MyApp.genruntimeconfig.cache
+/opt/projects/GitHub/Giovanni_Felle_Academy_DX_R-I_Lab/Academy/10-12/MyApp/obj/Debug/net8.0/ref/MyApp.dll
