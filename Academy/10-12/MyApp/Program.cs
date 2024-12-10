@@ -5,6 +5,7 @@ public class Program{
 
 	   static void Main(string[] args)
     {
+		List<ProgettoSoftware> progetti=new List<ProgettoSoftware>();
 		ProgettoSoftware progettoSoftwareMobile=new MobileApp("MobileApp", 5.0m, 3.0m);
 		WebApp progettoSoftwareWeb=new WebApp("Webz", 6.0m, 0.50m);
 
@@ -12,9 +13,12 @@ public class Program{
 		progettoSoftwareWeb.addUtente();
 		progettoSoftwareWeb.addUtente();
 
-		progettoSoftwareMobile.stampa();
-		progettoSoftwareWeb.stampa();
-
+		progetti.Add(progettoSoftwareMobile);
+		progetti.Add(progettoSoftwareWeb);
+		foreach(ProgettoSoftware p in progetti){
+			p.stampa();
+		}
+		
 	}
 
 }
@@ -65,7 +69,7 @@ public class WebApp : ProgettoSoftware{
 
     public override void stampa()
     {
-        Console.WriteLine($"App: {nome}, numero utenti {numeroUtenti}, costo di gesione per utenti {CostoGestioneUtente}, prezzo di vendita {prezzoVendita}");
+        Console.WriteLine($"App: {nome}, numero utenti {numeroUtenti}, costo di gesione per utenti {costoGestioneUtente}, prezzo di vendita {prezzoVendita}");
     }
 
 }
