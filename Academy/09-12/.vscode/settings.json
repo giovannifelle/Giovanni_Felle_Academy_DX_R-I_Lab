@@ -1,0 +1,8 @@
+{
+	"terminal.integrated.automationProfile.windows": {
+	"editor.acceptSuggestionOnCommitCharacter": false
+	},
+	"editor.acceptSuggestionOnEnter": "on",
+	"editor.acceptSuggestionOnCommitCharacter": false,
+	"debug.console.acceptSuggestionOnEnter": "on"
+}
